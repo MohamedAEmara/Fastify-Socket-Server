@@ -2,6 +2,7 @@ import Fastify from 'fastify';
 import * as dotenv from 'dotenv';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
+import prisma from './db/db.js';
 import userRoutes from './routes/user.route.js';
 
 dotenv.config();
@@ -53,6 +54,16 @@ fastify.get('/', (req, res) => {
     })
 })
 
+// Test connection endpoint
+fastify.get('/test-connection', async (request, reply) => {
+    try {
+      // Simple query to check the connection
+      await prisma.$queryRaw`SELECT 1`;
+      reply.send({ status: 'success', message: 'Database connection successful' });
+    } catch (error) {
+      reply.status(500).send({ status: 'error', message: 'Database connection failed', error: error.message });
+    }
+  });
 fastify.listen({ host, port }, function (err, address) {
     if (err) {
         fastify.log.error(err);

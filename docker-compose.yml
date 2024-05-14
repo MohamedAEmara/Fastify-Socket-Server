@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  learnovatedb:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: fastifysocket
+    volumes:
+      - pgdata:/var/lib/postgresql/fastifysocket
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:
