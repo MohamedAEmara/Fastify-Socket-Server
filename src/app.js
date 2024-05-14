@@ -8,7 +8,7 @@ import userRoutes from './routes/user.route.js';
 dotenv.config();
 
 const fastify = Fastify({
-    logger: true,
+    logger: false,
 });
 
 
