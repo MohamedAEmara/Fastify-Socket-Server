@@ -2,22 +2,12 @@ import UserController from "../controllers/user.controller.js";
 const userController = new UserController();
 
 async function userRoutes(fastify, options) {
-    // Test route.
-    fastify.get('/', async (req, res) => {
-        // res.status(200).send({
-        //     status: 'success',
-        //     message: 'Welcome from userRouter',
-        // });
-        await createUser('mohamed', '12344');
-        res.send('hi');
-    })
-
-    // >>>>>>>> TO-DO <<<<<<<<<
-    // CRUD operations for user
-    // fastify.post('/', async (req, res) => {
-    //     await 
-    // })
+    fastify.get('/', userController.getAllUsers);
     fastify.post('/', userController.createUser);
+    fastify.post('/login', userController.login);
+    fastify.delete('/', userController.deleteUser);
+    fastify.get('/:usernameOrId', userController.getSingleUser);
+    fastify.patch('/', userController.updateUser);
 }
 
 export default userRoutes;
