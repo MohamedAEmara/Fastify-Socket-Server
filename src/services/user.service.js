@@ -95,6 +95,7 @@ class UserService {
             const users = await this.prisma.user.findMany({
                 select: {
                     name: true,     // select only "name" filed.
+                    id: true,
                 }
             });
             return users;

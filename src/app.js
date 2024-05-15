@@ -3,6 +3,8 @@ import * as dotenv from 'dotenv';
 import swagger from '@fastify/swagger';
 import swaggerUi from '@fastify/swagger-ui';
 import prisma from './db/db.js';
+import cors from '@fastify/cors';
+import formbody from '@fastify/formbody';
 import userRoutes from './routes/user.route.js';
 
 dotenv.config();
@@ -15,18 +17,37 @@ const fastify = Fastify({
 const port = process.env.PORT || 3000;
 const host = process.env.HOST || '127.0.0.1';
 
+// Register CORS plugin
+fastify.register(cors, {
+    origin: '*', // Allow all origins
+});
+
+// Register formbody plugin
+fastify.register(formbody);
+
 // Register Swagger plugin
 fastify.register(swagger, {
-    swagger: {
+    mode: 'dynamic',
+    openapi: {
         info: {
-            title: 'Fastify API',
-            description: 'API documentation for the Fastify server',
-            version: '1.0.0',
+            title: 'Your API',
+            description: 'API documentation',
+            version: '1.0.0'
         },
-        host: `${host}:${port}`,
-        schemes: ['http'],
-        consumes: ['application/json'],
-        produces: ['application/json'],
+        components: {
+            securitySchemes: {
+                bearerAuth: {
+                    type: 'http',
+                    scheme: 'bearer',
+                    bearerFormat: 'JWT'
+                }
+            }
+        },
+        security: [
+            {
+                bearerAuth: []
+            }
+        ]
     }
 });
 
