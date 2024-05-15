@@ -24,7 +24,9 @@
     "express-async-handler": "^1.2.0",
     "fastify": "^4.27.0",
     "jsonwebtoken": "^9.0.2",
-    "swagger-jsdoc": "^6.2.8"
+    "swagger-jsdoc": "^6.2.8",
+    "websocket": "^1.0.35",
+    "ws": "^8.17.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
