@@ -1,7 +1,9 @@
 import { WebSocketServer } from 'ws';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 // Initialize WebSocket server
-const wss = new WebSocketServer({ port: 8081 });
+const wss = new WebSocketServer({ host: process.env.HOST, port: 8081 });
 
 // Event handlers for WebSocket server
 // NOTE: Port is a unique identifier for clients.

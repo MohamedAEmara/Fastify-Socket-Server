@@ -32,10 +32,10 @@ This project is a Fastify application that implements CRUD operations for a User
 - │ │ └── user.service.js
 - │ └── app.js
 - │── socket-server
-- |  └─── socketServer.js
+- │ └─── socketServer.js
 - │── prisma
-- ├───├── migrations
-- |   └── schema.prisma
+- │ ├── migrations
+- │ └─── schema.prisma
 - ├── .gitignore
 - ├── package.json
 - ├── package-lock.json
@@ -84,9 +84,16 @@ This project is a Fastify application that implements CRUD operations for a User
 
 ## API Documentation
 
-Swagger documentation is available for the Fastify endpoints. Once the server is running, you can access the Swagger UI at:
+You can see Swagger documentation and try it out through the ``deployed server``
 
-http://localhost:3000/documentation
+- https://fastify-socket-server.onrender.com/documentation/
+
+OR 
+
+
+You can run the server locally and see Swagger documentation at ``/documentaion`` endpoint
+
+- http://localhost:3000/documentation
 
 
 ### User Endpoints
