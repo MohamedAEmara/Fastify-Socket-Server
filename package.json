@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/app.js",
-    "start:dev": "docker compose up -d && nodemon ./src/app.js",
+    "start:dev": "docker compose up --build -d && node ./src/app.js & node ./socket-server/socketServer.js",
     "stop": "docker compose down"
   },
   "keywords": [],
