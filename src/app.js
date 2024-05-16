@@ -85,7 +85,7 @@ fastify.get('/test-connection', async (request, reply) => {
       reply.status(500).send({ status: 'error', message: 'Database connection failed', error: error.message });
     }
   });
-fastify.listen({ port }, function (err, address) {
+fastify.listen({ host, port }, function (err, address) {
     if (err) {
         fastify.log.error(err);
         process.exit(1);
