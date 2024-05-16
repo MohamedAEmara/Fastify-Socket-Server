@@ -149,6 +149,11 @@ class UserService {
     }
     updateUser = async (token, fieldsToUpdate) => {
         try {
+            if(!token) {
+                const err = new Error();
+                err.errorMessage = 'No token found. Please login to get the token';
+                throw err;
+            }
             const bearerToken = token.split(' ')[1];
             const jwtSecret = process.env.JWT_SECRET;
             const tokenObj = jwt.verify(bearerToken, jwtSecret);
@@ -182,6 +187,7 @@ class UserService {
             });
             return updatedUser;
         } catch (err) {
+            console.log(err);
             if(err.errorMessage) {
                 throw new Error(err.errorMessage);
             }
