@@ -117,6 +117,7 @@ The WebSocket server is implemented using the ws library. It enables bidirection
 
 For more detailed testing, you can use the provided Postman collection.
 
+
 ## Testing
 
 To test the WebSocket server using Postman:
@@ -124,6 +125,13 @@ To test the WebSocket server using Postman:
 1. Import the Postman collection from test/socketTest.json.
 2. Establish a WebSocket connection to ws://localhost:3000.
 3. Send test messages and verify the responses.
+
+## Postman Testing
+
+
+https://github.com/MohamedAEmara/Fastify-Socket-Server/assets/62681515/7d78ccf9-39d9-4cb5-a23e-b2c8d611f923
+
+
 
 ## Dependencies
 
