@@ -48,13 +48,22 @@ This project is a Fastify application that implements CRUD operations for a User
 
 1. Clone the repository:
     
-    git clone https://github.com/MohamedAEmara/fastify-socket-server.git
-    cd fastify-socket-server
-    
+
+
+    $  git clone https://github.com/MohamedAEmara/fastify-socket-server.git
+   
+
+
+    $  cd fastify-socket-server
+
+
+
 
 2. Install the dependencies:
-    
+
+
     npm install
+
 
 3. Add .env file and add your enviroment variables
 
@@ -68,17 +77,32 @@ This project is a Fastify application that implements CRUD operations for a User
     ## NOTE: this data base will connect to DB docker container defined in docker-compse.
 ```
 
-3. Run the server: **this will run DB container and connect fastify server to it.**  
 
-    npm run start:dev       
+#### Make sure you installed Postgres on your machine
+
+### OR
+
+####  Use the DB configurations in docker-compose.yml file (Make sure you installed Docker)
+  
 
 ## Running the Application
 
 1. Start the Fastify server: **this will run DB container and connect fastify server to it. Also will run the socker server**  
 
+
+    ``
     npm run start:dev 
-    
-    
+    ``
+
+
+    In case you don't want to use Docker and have Postgres installed on your machine RUN
+
+
+
+    ``
+    npm run start 
+    ``
+
 
 2. The server will be running at http://localhost:3000.
 
