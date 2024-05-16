@@ -23,8 +23,20 @@ async function userRoutes(fastify, options) {
             }
         }
     });
-    fastify.get('/', userController.getAllUsers);
-    fastify.get('/:usernameOrId', userController.getSingleUser);
+    fastify.get('/',{
+        schema: {
+            description: 'Get All Users',
+            tags: ['Users'],
+            summary: 'Get All Users id & name fields',
+        }
+    }, userController.getAllUsers);
+    fastify.get('/:usernameOrId', {
+        schema: {
+            description: 'Get Single User',
+            tags: ['Users'],
+            summary: 'Get Single User by ID or username',
+        }
+    },userController.getSingleUser);
     fastify.post('/', {
         schema: {
             description: 'Create a new user',
@@ -79,7 +91,7 @@ async function userRoutes(fastify, options) {
         schema: {
             description: 'Delete a user',
             tags: ['Users'],
-            summary: 'Delete a user',
+            summary: 'Delete a user account (must have a token)',
             security: [
                 {
                     bearerAuth: []
@@ -91,7 +103,7 @@ async function userRoutes(fastify, options) {
         schema: {
             description: 'Update user fields',
             tags: ['Users'],
-            summary: 'Update user fields',
+            summary: 'Update user fields (must have a token)',
             body: {
                 type: 'object',
                 properties: {

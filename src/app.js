@@ -30,8 +30,8 @@ fastify.register(swagger, {
     mode: 'dynamic',
     openapi: {
         info: {
-            title: 'Your API',
-            description: 'API documentation',
+            title: 'Fastify Socket Server',
+            description: 'CRUD operations for users',
             version: '1.0.0'
         },
         components: {
